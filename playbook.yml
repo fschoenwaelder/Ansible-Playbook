@@ -1,6 +1,6 @@
 ---
 - name: ansible-playbook
-  hosts: ubuntu
+  hosts: localhost
   become: yes
 
   roles:
