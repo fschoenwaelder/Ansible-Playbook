@@ -5,3 +5,5 @@
     minute: 0
     hour: 4
     job: "/sbin/shutdown -r now"
+  tags:
+    - cron
