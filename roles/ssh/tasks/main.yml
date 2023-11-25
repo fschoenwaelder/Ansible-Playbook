@@ -1,23 +1,16 @@
 ---
-- name: Disable password authentication in ssh_config (real disable password auth)
-  lineinfile:
-    path: /etc/ssh/ssh_config
-    regexp: "^(#| )*PasswordAuthentication"
-    line: "PasswordAuthentication no"
-  tags:
-    - ssh
-
 - name: Disable password authentication in sshd_config (required in task and requires openssh)
   lineinfile:
     path: /etc/ssh/sshd_config
     regexp: "^(#| )*PasswordAuthentication"
     line: "PasswordAuthentication no"
+  notify: restart sshd
   tags:
     - ssh
 
 - name: Restart SSH service
   service:
-    name: ssh
+    name: sshd
     state: restarted
   tags:
     - ssh
