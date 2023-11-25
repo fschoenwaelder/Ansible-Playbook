@@ -1,0 +1,7 @@
+---
+- name: Create cron job to reboot the server every night at 04:00
+  cron:
+    name: "Reboot Server"
+    minute: 0
+    hour: 4
+    job: "/sbin/shutdown -r now"
